@@ -1,10 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 const app = express();
 
 const exphbs = require("express-handlebars");
-
+const connection = require("./config/connection.js")
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -14,26 +15,7 @@ const PORT = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
-const mysql = require("mysql");
-
-
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "burgers_db"
-  });
-
-
-  connection.connect(function(err) {
-    if (err) {
-      console.error("error connecting: " + err.stack);
-      return;
-    }
-  
-    console.log("connected as id " + connection.threadId);
-  });
+app.use(express.static(path.join(__dirname, './public/assets/css')));/// do css problems have something to do with this
 
 app.get("/", function(req, res) {
     connection.query("SELECT * FROM burgers;", function(err, data){
