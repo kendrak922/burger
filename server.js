@@ -22,7 +22,7 @@ const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "burger"
+    database: "burgers_db"
   });
 
 
@@ -34,6 +34,15 @@ const connection = mysql.createConnection({
   
     console.log("connected as id " + connection.threadId);
   });
+
+app.get("/", function(req, res) {
+    connection.query("SELECT * FROM burgers;", function(err, data){
+        if(err){
+            return res.render(500).end();
+        }
+        res.render("index", {burgers: data})
+    });
+});
 
 
 

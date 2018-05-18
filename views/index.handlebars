@@ -1,0 +1,14 @@
+        <h1>BURGER TIME</12>
+<ul>
+{{#each burgers}}
+	<li>
+	<p class ="label">ID:{{this.id}}</p>
+	<p class ="label">Burger:{{this.burger_name}}</p>
+	</li>	
+	{{/each}}
+</ul>
+<button data-id={{this.id}} class="eatThis">Devour!</button>
+<input class="w3-input w3-animate-input" type="text" placeholder="Type Your Burger Here" style="width:30%">
+<button type="submit">Add Burger</button>
+	</body>
+</html>
