@@ -1,3 +1,3 @@
-INSERT into burgers(burger_name ) VALUES ("Big Mac");
-INSERT into burgers(burger_name ) VALUES ("Lamb Burger");
-INSERT into burgers(burger_name ) VALUES ("Juicy Lucy");
+INSERT into burgers(burger_name, devoured ) VALUES ("Big Mac", false);
+INSERT into burgers(burger_name, devoured ) VALUES ("Lamb Burger", false);
+INSERT into burgers(burger_name, devoured ) VALUES ("Juicy Lucy", false);

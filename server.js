@@ -10,12 +10,12 @@ const connection = require("./config/connection.js")
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, './public/assets/css')));/// do css problems have something to do with this
+app.use(express.static('public'))
 
 app.get("/", function(req, res) {
     connection.query("SELECT * FROM burgers;", function(err, data){
@@ -26,6 +26,9 @@ app.get("/", function(req, res) {
     });
 });
 
+const routes = require("./controllers/burgers_controller.js");
+
+app.use('/', routes);
 
 
   app.listen(PORT, function() {

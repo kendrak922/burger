@@ -1,11 +1,13 @@
         <h1>BURGER TIME</12>
 <ul>
 {{#each burgers}}
+{{#unless devoured}}
 	<li>
 	<p class ="label">ID:{{this.id}}</p>
 	<p class ="label">Burger:{{this.burger_name}}</p>
 	<button data-id={{this.id}} class="eatThis">Devour!</button>
 	</li>	
+	{{/unless}}
 	{{/each}}
 </ul>
 <input class="w3-input w3-animate-input" type="text" placeholder="Type Your Burger Here" style="width:30%">
