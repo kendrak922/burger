@@ -6,14 +6,14 @@ selectAll: function(cb){
         cb(res);
     });
 },
-updateOne: function(condition, burger_name, cb) {
-    orm.updateOne("burgers", condition, burger_name, function(res){
+updateOne: function(condition, objColVals, cb) {
+    orm.updateOne("burgers", condition, objColVals, function(res){
         cb(res);
     });
 },
 
-insertOne: function(burger_name, condition, cb){
-    orm.insertOne("burgers", condition, burger_name, function(res){
+insertOne: function(objColVals, values, cb){
+    orm.insertOne("burgers", values, objColVals, function(res){
        cb(res);
     })
 }

@@ -22,7 +22,7 @@ $(function() {
 
 
 
-$(".submit").on("click", function(){
+$(".submit").on("click", function(event){
 event.preventDefault();
 const newBurger = $(this).val();
 $.ajax("/api/burgers", {

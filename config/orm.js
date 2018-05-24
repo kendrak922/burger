@@ -32,14 +32,14 @@ function printQuestionMarks(num) {
 const orm = {
 
     selectAll : function(tableInput, cb){
-        const queryString = "SELECT * FROM" + tableInput + ";";
-        connection.query(querySting, function(err,result){
+        const queryString = "SELECT * FROM " + tableInput + ";";
+        connection.query(queryString, function(err,result){
             if (err) throw err;
             cb(result);
         });
     },
     insertOne : function(table, cols, vals, cb){
-        const queryString = "INSERT INTO" + table;
+        const queryString = "INSERT INTO " + table;
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
@@ -55,10 +55,10 @@ const orm = {
     },
 
     updateOne : function(table, objColVals, condition, cb){
-        const queryString = "UPDATE" + tables;
-        queryString += "SET";
+        const queryString = "UPDATE " + tables;
+        queryString += "SET ";
         queryString += objToSql(objColVals)
-        queryString += "WHERE";
+        queryString += "WHERE ";
         queryString += condition;
 
         connection.query(querySting, function(err, result){
